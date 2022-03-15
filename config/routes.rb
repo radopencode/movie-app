@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  post "/actor" => "app#actor_query"
+  get "/actor" => "app#actor_query"
+  get "/actor/:id" => "app#actor_query"
 end

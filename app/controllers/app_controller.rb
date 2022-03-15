@@ -1,6 +1,6 @@
 class AppController < ApplicationController
-  def def actor_query
-    input = params:[actor_name]
-    render json: {message: "#{input}"}
+  def actor_query
+    actor = Actor.find_by(id: params[:id])
+    render json: { message: actor }
   end
 end

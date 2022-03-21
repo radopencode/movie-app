@@ -3,7 +3,7 @@ Content-Type: application/json
  
  
 ##ACTORS INDEX
-GET http://localhost:3000/actors
+GET http://localhost:3000/actors.json
 
 ##ACTORS CREATE
 POST http://localhost:3000/actors

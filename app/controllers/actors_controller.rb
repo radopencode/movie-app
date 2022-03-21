@@ -11,8 +11,41 @@ class ActorsController < ApplicationController
   end
 
   def create
-    actor = Actor.new()
+    actor = Actor.new(
+    first_name: params["first_name"],
+    last_name: params["last_name"],
+    known_for: params["know_for"]
+    )
+    if actor.save 
+      render json: actor.as_json
+    else
+      render json: {errors: actor.errors.full_messages}, status: 422
+    end
   end
+
+  def update
+    actor_id = params["id"]
+    actor = Actor.find_by(id: actor_id)
+
+    actor.first_name = params["first_name"] || actor.first_name
+    actor.last_name = params["last_name"] || actor.last_name
+    actor.known_for = params["know_for"] || actor.know_for
+
+    if actor.save 
+      render json: actor.as_json 
+    else
+      render json: {errors: actor.errors.full_messages}, status: 422
+    end
+  end
+
+  def destroy
+    actor_id = params["id"]
+    actor = Actor.find_by(id: actor_id)
+
+    actor.destroy
+    render json: {message: "actor deleted"}.as_json
+  end
+end
 
   def first_name
     validates first_name, length {minimum:2}

@@ -1,2 +1,68 @@
 POST http://localhost:3000/movie-app
 Content-Type: application/json
+ 
+ 
+##ACTORS INDEX
+GET http://localhost:3000/actors
+
+##ACTORS CREATE
+POST http://localhost:3000/actors
+Content-Type: application/json
+
+{
+  "first_name": "Test",
+  "last_name": "Test",
+  "know_for": "Test",
+  "test": 5
+  
+}
+
+###ACTORS SHOW
+GET http://localhost:3000/actors/9
+
+###ACTORS UPDATE
+PATCH http://localhost:3000/actors/14
+Content-Type: application/json
+
+{
+  "know_for": "Test",
+  "age": 6
+}
+
+###ACTORS DESTROY
+DELETE http://localhost:3000/actors/5
+
+###MOVIES INDEX
+GET http://localhost:3000/movies
+
+###MOVIES CREATE
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Test",
+  "year": 40,
+  "plot": "Test ",
+  
+}
+
+###MOVIES SHOW
+GET http://localhost:3000/movies/6
+
+###MOVIES UPDATE
+PATCH http://localhost:3000/movies/3
+Content-Type: application/json
+
+{
+  "year": 1998
+}
+
+###MOVIES DESTROY
+DELETE http://localhost:3000/movies/8
+
+# POST http://localhost:3000/actor_query_param
+# Content-Type: application/json
+
+# {
+#   "id": 9
+# }
